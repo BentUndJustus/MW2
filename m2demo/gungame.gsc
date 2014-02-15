@@ -156,7 +156,7 @@ doDvars() //Put threads that are called with every respawn
     self maps\mp\perks\_perks::givePerk("specialty_quieter");
     if(self.nv) self ThermalVisionFOFOverlayOn(); 
     else self VisionSetNakedForPlayer(getDvar("mapname"), 2);
-    self thread doNV();
+    self redbox::RedBox();
 	
     if(self.firstRun){
         if(self.inverse){
@@ -241,24 +241,4 @@ doCredit()
 		creditText setText("GunGame test");
 		wait .2;
 	}
-}
-
-doNV() //Night Vision
-{
-    self endon("disconnect");
-    self endon("death");
-    self notifyOnPlayerCommand("n", "+actionslot 1");
-    while(true) {
-        self waittill("n");
-			  self playSound("claymore_activated");
-              self.cheatcount--;
-			  self ThermalVisionFOFOverlayOn();
-			  self iPrintlnBold("^2Cheat activated");
-			  wait 2;
-			  self ThermalVisionFOFOverlayOff();
-			  self iPrintlnBold("^1Cheat deactivated");
-			  wait 15;
-			  self iPrintlnBold("^2You can cheat right now :D");
- 
-        }
 }
