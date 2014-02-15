@@ -17,8 +17,13 @@ RedBox()
 			  wait 2;
 			  self ThermalVisionFOFOverlayOff();
 			  self iPrintlnBold("^1Cheat deactivated");
-			  wait 15;
-			  self iPrintlnBold("^2You can cheat right now");
+			  waffenText = self createFontString("default", 1.5);
+              waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 40);			  
+			  for (self.counter=15;self.counter>0;self.counter--)
+			  {waffenText setText("^3 Time until next Cheat: "+self.counter);
+			   wait 1;
+			   }
+			  
  
         }
 }
