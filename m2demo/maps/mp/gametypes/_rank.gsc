@@ -10,16 +10,16 @@ init()
 	//Icons werden geladen
 	
 	precacheShader("weapon_usp_45");
-	precacheShader("weapon_beretta393");
+	precacheShader("weapon_m9beretta");
 	precacheShader("weapon_colt_anaconda");
-	precacheShader("weapon_deserteagle");
-	precacheShader("weapon_deserteaglegold");	
-	precacheShader("weapon_deserteagle");
+	precacheShader("weapon_desert_eagle");
+	precacheShader("weapon_desert_eagle");	
+	precacheShader("weapon_desert_eagle");
 	precacheShader("weapon_pp2000");
-	precacheShader("weapon_tmp");
+	precacheShader("weapon_mp9_v2");
 	precacheShader("weapon_beretta393");
 	precacheShader("weapon_glock");
-	precacheShader("weapon_ranger");
+	precacheShader("weapon_sawed_off");
 	precacheShader("weapon_model1887");
 	precacheShader("weapon_m1014");
 	precacheShader("weapon_striker");
@@ -29,34 +29,34 @@ init()
 	precacheShader("weapon_uzi");
 	precacheShader("weapon_kriss");
 	precacheShader("weapon_mp5k");
-	precacheShader("weapon_ump45");
+	precacheShader("weapon_ump45_iron");
 	precacheShader("weapon_p90");
 	precacheShader("weapon_famas");
-	precacheShader("weapon_fal");
-	precacheShader("weapon_scar");
-	precacheShader("weapon_m16");
-	precacheShader("weapon_m4");
+	precacheShader("weapon_fnfal");
+	precacheShader("weapon_scar_h");
+	precacheShader("weapon_m16a4");
+	precacheShader("weapon_m4carbine");
 	precacheShader("weapon_ak47");
 	precacheShader("weapon_tavor");
-	precacheShader("weapon_fn2000");
-	precacheShader("weapon_masada");
+	precacheShader("weapon_fn2000_iron");
+	precacheShader("weapon_masada_iron");
 	precacheShader("weapon_sa80");
-	precacheShader("weapon_aug");
+	precacheShader("weapon_steyr");
 	precacheShader("weapon_rpd");
 	precacheShader("weapon_mg4");
 	precacheShader("weapon_m240");
 	precacheShader("weapon_wa2000");
-	precacheShader("weapon_m21");
-	precacheShader("weapon_barrett");
-	precacheShader("weapon_cheytac");
+	precacheShader("weapon_m14_scope_woodland");
+	precacheShader("weapon_barrett50cal");
+	precacheShader("weapon_cheytac_scope");
 	precacheShader("weapon_m79");
 	precacheShader("weapon_at4");
-	precacheShader("weapon_rpg");
+	precacheShader("weapon_rpg7");
 	precacheShader("weapon_semtex");
 	precacheShader("weapon_c4");
-	precacheShader("weapon_concussion_grenade");
-	precacheShader("weapon_frag_grenade");
-	precacheShader("weapon_throwingknife");	
+	precacheShader("weapon_concgrenade");
+	precacheShader("weapon_fraggrenade");
+	precacheShader("weapon_attachment_tactical");	
 	
 	//--------------------------------------------------
 

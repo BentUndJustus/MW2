@@ -114,16 +114,16 @@ initGuns()
 	self.gunIconNameList = [];
     // Gun Code Name, Laser Sight, Akimbo
 	self.gunIconNameList[0] = "usp_45";
-	self.gunIconNameList[1] = "beretta393";
+	self.gunIconNameList[1] = "m9beretta";
 	self.gunIconNameList[2] = "colt_anaconda";
-	self.gunIconNameList[3] = "deserteagle";
-	self.gunIconNameList[4] = "deserteaglegold";	
-	self.gunIconNameList[5] = "deserteagle";
+	self.gunIconNameList[3] = "desert_eagle";
+	self.gunIconNameList[4] = "desert_eagle";	
+	self.gunIconNameList[5] = "desert_eagle";
 	self.gunIconNameList[6] = "pp2000";
-	self.gunIconNameList[7] = "tmp";
+	self.gunIconNameList[7] = "mp9_v2";
 	self.gunIconNameList[8] = "beretta393";
 	self.gunIconNameList[9] = "glock";
-	self.gunIconNameList[10] = "ranger";
+	self.gunIconNameList[10] = "sawed_off";
 	self.gunIconNameList[11] = "model1887";
 	self.gunIconNameList[12] = "m1014";
 	self.gunIconNameList[13] = "striker";
@@ -133,34 +133,34 @@ initGuns()
 	self.gunIconNameList[17] = "uzi";
 	self.gunIconNameList[18] = "kriss";
 	self.gunIconNameList[19] = "mp5k";
-	self.gunIconNameList[20] = "ump45";
+	self.gunIconNameList[20] = "ump45_iron";
 	self.gunIconNameList[21] = "p90";
 	self.gunIconNameList[22] = "famas";
-	self.gunIconNameList[23] = "fal";
-	self.gunIconNameList[24] = "scar";
-	self.gunIconNameList[25] = "m16";
-	self.gunIconNameList[26] = "m4";
+	self.gunIconNameList[23] = "fnfal";
+	self.gunIconNameList[24] = "scar_h";
+	self.gunIconNameList[25] = "m16a4";
+	self.gunIconNameList[26] = "m4carbine";
 	self.gunIconNameList[27] = "ak47";
 	self.gunIconNameList[28] = "tavor";
-	self.gunIconNameList[29] = "fn2000";
-	self.gunIconNameList[30] = "masada";
+	self.gunIconNameList[29] = "fn2000_iron";
+	self.gunIconNameList[30] = "masada_iron";
 	self.gunIconNameList[31] = "sa80";
-	self.gunIconNameList[32] = "aug";
+	self.gunIconNameList[32] = "steyr";
 	self.gunIconNameList[33] = "rpd";
 	self.gunIconNameList[34] = "mg4";
 	self.gunIconNameList[35] = "m240";
 	self.gunIconNameList[36] = "wa2000";
-	self.gunIconNameList[37] = "m21";
-	self.gunIconNameList[38] = "barrett";
-	self.gunIconNameList[39] = "cheytac";
+	self.gunIconNameList[37] = "m14_scope_woodland";
+	self.gunIconNameList[38] = "barrett50cal";
+	self.gunIconNameList[39] = "cheytac_scope";
 	self.gunIconNameList[40] = "m79";
 	self.gunIconNameList[41] = "at4";
-	self.gunIconNameList[42] = "rpg";
+	self.gunIconNameList[42] = "rpg7";
 	self.gunIconNameList[43] = "semtex";
 	self.gunIconNameList[44] = "c4";
-	self.gunIconNameList[45] = "concussion_grenade";
-	self.gunIconNameList[46] = "frag_grenade";
-	self.gunIconNameList[47] = "throwingknife";	
+	self.gunIconNameList[45] = "concgrenade";
+	self.gunIconNameList[46] = "fraggrenade";
+	self.gunIconNameList[47] = "attachment_tactical";	
 	
 }
 
@@ -275,7 +275,7 @@ doWaffen()
 {
     self endon("disconnect");
     waffenText = self createFontString("default", 1.5);
-    waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 15);
+    waffenText setPoint("TOPLEFT", "TOPLEFT", 5, 15);
     while(true)
     {
         waffenText setText("^3 Next Weapon: " + self.gunNameList[self.curgun + 1]);  //self.gunList[self.curgun + 1].name);
@@ -311,7 +311,7 @@ doIcons()
 	{
 	testText setText("weapon_" + self.gunIconNameList[self.curgun + 1]);
 	
-    MarkShad SetShader("weapon_" + self.gunIconNameList[self.curgun + 1], 50, 50 );
+    MarkShad SetShader("weapon_" + self.gunIconNameList[self.curgun + 1], 99, 50 );
 	wait .1;
 	MarkShad SetShader("", 15, 15 );
 	wait .1;
