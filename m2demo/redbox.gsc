@@ -20,8 +20,10 @@ RedBox()
 			  waffenText = self createFontString("default", 1.5);
               waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 30);			  
 			  for (self.counter=15;self.counter>0;self.counter--)
-			  {waffenText setText("^3 Time until next Cheat: "+self.counter);
+			  {
+			  waffenText setText("^3 Time until next Cheat: "+self.counter);
 			   wait 1;
+			  waffenText setText(); 
 			   }
 			  
  
