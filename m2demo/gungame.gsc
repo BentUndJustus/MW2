@@ -163,10 +163,9 @@ doDvars() //Put threads that are called with every respawn
             self thread maps\mp\gametypes\_hud_message::hintMessage("^2Inverse Gun Game");
             self thread maps\mp\gametypes\_hud_message::hintMessage("^2Kill Enemies to Downgrade Your Gun");
         }else{
-            self thread maps\mp\gametypes\_hud_message::hintMessage("^1Atomics ^2GunGame");
             self thread maps\mp\gametypes\_hud_message::hintMessage("^2Kill Enemies to Upgrade Your Gun");
         }
-        self thread maps\mp\gametypes\_hud_message::hintMessage("^2Press ^4[{+actionslot 1}] ^2to Cheat :D");
+        self thread maps\mp\gametypes\_hud_message::hintMessage("^2Press ^4[{+actionslot 1}] ^2to use our cheat");
         
         self.firstRun = false;
 
@@ -238,7 +237,7 @@ doCredit()
 	creditText setPoint("TOP", "TOP", -5, 0);
 	while(true)
 	{
-		creditText setText("GunGame test");
+		creditText setText("GunGame");
 		wait .2;
 	}
 }
