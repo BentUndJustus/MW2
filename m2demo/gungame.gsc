@@ -115,7 +115,7 @@ initGuns()
     // Gun Code Name, Laser Sight, Akimbo
 	self.gunIconNameList[0] = "usp_45";
 	self.gunIconNameList[1] = "beretta393";
-	self.gunIconNameList[2] = "coltanaconda";
+	self.gunIconNameList[2] = "colt_anaconda";
 	self.gunIconNameList[3] = "deserteagle";
 	self.gunIconNameList[4] = "deserteaglegold";	
 	self.gunIconNameList[5] = "deserteagle";
@@ -300,14 +300,22 @@ doIcons()
 {
 	testText = self createFontString("default", 1.5);
 	testText setPoint("TOP", "TOP", -5, 20);
-
+    MarkShad = NewClientHudElem( self );
+    MarkShad.alignX = "TOP";
+    MarkShad.alignY = "TOP";
+    MarkShad.horzAlign = "TOP";
+    MarkShad.vertAlign = "TOP";
+    MarkShad.foreground = false;
+    MarkShad.alpha = 1.0;
 	while(true)
 	{
 	testText setText("weapon_" + self.gunIconNameList[self.curgun + 1]);
-	self.infoIcon = createIcon("weapon_" + self.gunIconNameList[self.curgun + 1], 99, 50);
-	self.infoIcon setPoint("TOP", "TOP", 5, 100 );
 	
+    MarkShad SetShader("weapon_" + self.gunIconNameList[self.curgun + 1], 50, 50 );
+	wait .1;
+	MarkShad SetShader("", 15, 15 );
+	wait .1;
 	
-		wait .2;
+		
 	}		
 }

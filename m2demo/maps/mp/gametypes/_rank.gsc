@@ -11,7 +11,7 @@ init()
 	
 	precacheShader("weapon_usp_45");
 	precacheShader("weapon_beretta393");
-	precacheShader("weapon_coltanaconda");
+	precacheShader("weapon_colt_anaconda");
 	precacheShader("weapon_deserteagle");
 	precacheShader("weapon_deserteaglegold");	
 	precacheShader("weapon_deserteagle");
