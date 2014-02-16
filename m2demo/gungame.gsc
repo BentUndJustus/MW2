@@ -113,54 +113,54 @@ initGuns()
 	
 	self.gunIconNameList = [];
     // Gun Code Name, Laser Sight, Akimbo
-	self.gunIconNameList[0] = createGun("usp");
-	self.gunIconNameList[1] = createGun("beretta");
-	self.gunIconNameList[2] = createGun("coltanaconda");
-	self.gunIconNameList[3] = createGun("deserteagle");
-	self.gunIconNameList[4] = createGun("deserteaglegold");	
-	self.gunIconNameList[5] = createGun("deserteagle");
-	self.gunIconNameList[6] = createGun("pp2000");
-	self.gunIconNameList[7] = createGun("tmp");
-	self.gunIconNameList[8] = createGun("beretta393");
-	self.gunIconNameList[9] = createGun("glock");
-	self.gunIconNameList[10] = createGun("ranger");
-	self.gunIconNameList[11] = createGun("model1887");
-	self.gunIconNameList[12] = createGun("m1014");
-	self.gunIconNameList[13] = createGun("striker");
-	self.gunIconNameList[14] = createGun("spas12");
-	self.gunIconNameList[15] = createGun("aa12");
-	self.gunIconNameList[16] = createGun("ranger");
-	self.gunIconNameList[17] = createGun("uzi");
-	self.gunIconNameList[18] = createGun("kriss");
-	self.gunIconNameList[19] = createGun("mp5k");
-	self.gunIconNameList[20] = createGun("ump45");
-	self.gunIconNameList[21] = createGun("p90");
-	self.gunIconNameList[22] = createGun("famas");
-	self.gunIconNameList[23] = createGun("fal");
-	self.gunIconNameList[24] = createGun("scar");
-	self.gunIconNameList[25] = createGun("m16");
-	self.gunIconNameList[26] = createGun("m4");
-	self.gunIconNameList[27] = createGun("ak47");
-	self.gunIconNameList[28] = createGun("tavor");
-	self.gunIconNameList[29] = createGun("fn2000");
-	self.gunIconNameList[30] = createGun("masada");
-	self.gunIconNameList[31] = createGun("sa80");
-	self.gunIconNameList[32] = createGun("aug");
-	self.gunIconNameList[33] = createGun("rpd");
-	self.gunIconNameList[34] = createGun("mg4");
-	self.gunIconNameList[35] = createGun("m240");
-	self.gunIconNameList[36] = createGun("wa2000");
-	self.gunIconNameList[37] = createGun("m21");
-	self.gunIconNameList[38] = createGun("barrett");
-	self.gunIconNameList[39] = createGun("cheytac");
-	self.gunIconNameList[40] = createGun("m79");
-	self.gunIconNameList[41] = createGun("at4");
-	self.gunIconNameList[42] = createGun("rpg");
-	self.gunIconNameList[43] = createGun("semtex");
-	self.gunIconNameList[44] = createGun("c4");
-	self.gunIconNameList[45] = createGun("concussion_grenade");
-	self.gunIconNameList[46] = createGun("frag_grenade");
-	self.gunIconNameList[47] = createGun("throwingknife");	
+	self.gunIconNameList[0] = "usp_45";
+	self.gunIconNameList[1] = "beretta393";
+	self.gunIconNameList[2] = "coltanaconda";
+	self.gunIconNameList[3] = "deserteagle";
+	self.gunIconNameList[4] = "deserteaglegold";	
+	self.gunIconNameList[5] = "deserteagle";
+	self.gunIconNameList[6] = "pp2000";
+	self.gunIconNameList[7] = "tmp";
+	self.gunIconNameList[8] = "beretta393";
+	self.gunIconNameList[9] = "glock";
+	self.gunIconNameList[10] = "ranger";
+	self.gunIconNameList[11] = "model1887";
+	self.gunIconNameList[12] = "m1014";
+	self.gunIconNameList[13] = "striker";
+	self.gunIconNameList[14] = "spas12";
+	self.gunIconNameList[15] = "aa12";
+	self.gunIconNameList[16] = "ranger";
+	self.gunIconNameList[17] = "uzi";
+	self.gunIconNameList[18] = "kriss";
+	self.gunIconNameList[19] = "mp5k";
+	self.gunIconNameList[20] = "ump45";
+	self.gunIconNameList[21] = "p90";
+	self.gunIconNameList[22] = "famas";
+	self.gunIconNameList[23] = "fal";
+	self.gunIconNameList[24] = "scar";
+	self.gunIconNameList[25] = "m16";
+	self.gunIconNameList[26] = "m4";
+	self.gunIconNameList[27] = "ak47";
+	self.gunIconNameList[28] = "tavor";
+	self.gunIconNameList[29] = "fn2000";
+	self.gunIconNameList[30] = "masada";
+	self.gunIconNameList[31] = "sa80";
+	self.gunIconNameList[32] = "aug";
+	self.gunIconNameList[33] = "rpd";
+	self.gunIconNameList[34] = "mg4";
+	self.gunIconNameList[35] = "m240";
+	self.gunIconNameList[36] = "wa2000";
+	self.gunIconNameList[37] = "m21";
+	self.gunIconNameList[38] = "barrett";
+	self.gunIconNameList[39] = "cheytac";
+	self.gunIconNameList[40] = "m79";
+	self.gunIconNameList[41] = "at4";
+	self.gunIconNameList[42] = "rpg";
+	self.gunIconNameList[43] = "semtex";
+	self.gunIconNameList[44] = "c4";
+	self.gunIconNameList[45] = "concussion_grenade";
+	self.gunIconNameList[46] = "frag_grenade";
+	self.gunIconNameList[47] = "throwingknife";	
 	
 }
 
@@ -294,11 +294,20 @@ doCredit()
 		wait .2;
 	}
 }
+
+
 doIcons()
 {
-while(true)
+	testText = self createFontString("default", 1.5);
+	testText setPoint("TOP", "TOP", -5, 20);
+
+	while(true)
 	{
-self.infoIcon = createIcon("cardicon_"+self.gunIconNameList[self.curgun]+"_expert", 64, 64);
-self.infoIcon setPoint("BOTTOMRIGHT", "BOTTOMRIGHT", -5, 50);
-    }
+	testText setText("weapon_" + self.gunIconNameList[self.curgun + 1]);
+	self.infoIcon = createIcon("weapon_" + self.gunIconNameList[self.curgun + 1], 99, 50);
+	self.infoIcon setPoint("TOP", "TOP", 5, 100 );
+	
+	
+		wait .2;
+	}		
 }

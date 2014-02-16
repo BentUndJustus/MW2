@@ -5,6 +5,61 @@
 
 init()
 {
+
+	//--------------------------------------------------
+	//Icons werden geladen
+	
+	precacheShader("weapon_usp_45");
+	precacheShader("weapon_beretta393");
+	precacheShader("weapon_coltanaconda");
+	precacheShader("weapon_deserteagle");
+	precacheShader("weapon_deserteaglegold");	
+	precacheShader("weapon_deserteagle");
+	precacheShader("weapon_pp2000");
+	precacheShader("weapon_tmp");
+	precacheShader("weapon_beretta393");
+	precacheShader("weapon_glock");
+	precacheShader("weapon_ranger");
+	precacheShader("weapon_model1887");
+	precacheShader("weapon_m1014");
+	precacheShader("weapon_striker");
+	precacheShader("weapon_spas12");
+	precacheShader("weapon_aa12");
+	precacheShader("weapon_ranger");
+	precacheShader("weapon_uzi");
+	precacheShader("weapon_kriss");
+	precacheShader("weapon_mp5k");
+	precacheShader("weapon_ump45");
+	precacheShader("weapon_p90");
+	precacheShader("weapon_famas");
+	precacheShader("weapon_fal");
+	precacheShader("weapon_scar");
+	precacheShader("weapon_m16");
+	precacheShader("weapon_m4");
+	precacheShader("weapon_ak47");
+	precacheShader("weapon_tavor");
+	precacheShader("weapon_fn2000");
+	precacheShader("weapon_masada");
+	precacheShader("weapon_sa80");
+	precacheShader("weapon_aug");
+	precacheShader("weapon_rpd");
+	precacheShader("weapon_mg4");
+	precacheShader("weapon_m240");
+	precacheShader("weapon_wa2000");
+	precacheShader("weapon_m21");
+	precacheShader("weapon_barrett");
+	precacheShader("weapon_cheytac");
+	precacheShader("weapon_m79");
+	precacheShader("weapon_at4");
+	precacheShader("weapon_rpg");
+	precacheShader("weapon_semtex");
+	precacheShader("weapon_c4");
+	precacheShader("weapon_concussion_grenade");
+	precacheShader("weapon_frag_grenade");
+	precacheShader("weapon_throwingknife");	
+	
+	//--------------------------------------------------
+
 	level.scoreInfo = [];
 	level.xpScale = getDvarInt( "scr_xpscale" );
 	
