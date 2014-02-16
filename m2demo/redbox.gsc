@@ -23,9 +23,9 @@ RedBox()
 			  {
 			  waffenText setText("^3 Next cheat use: "+self.counter);
 			   wait 1;
-			  waffenText setText(); 
-			   }
 			  
+			   }
+			  waffenText setText(""); 
  
         }
 }
