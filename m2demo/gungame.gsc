@@ -110,6 +110,58 @@ initGuns()
 	self.gunNameList[45] = "Confusion Grenade";
 	self.gunNameList[46] = "Grenade";
 	self.gunNameList[47] = "Throwing Knife";	
+	
+	self.gunIconNameList = [];
+    // Gun Code Name, Laser Sight, Akimbo
+	self.gunIconNameList[0] = createGun("usp");
+	self.gunIconNameList[1] = createGun("beretta");
+	self.gunIconNameList[2] = createGun("coltanaconda");
+	self.gunIconNameList[3] = createGun("deserteagle");
+	self.gunIconNameList[4] = createGun("deserteaglegold");	
+	self.gunIconNameList[5] = createGun("deserteagle");
+	self.gunIconNameList[6] = createGun("pp2000");
+	self.gunIconNameList[7] = createGun("tmp");
+	self.gunIconNameList[8] = createGun("beretta393");
+	self.gunIconNameList[9] = createGun("glock");
+	self.gunIconNameList[10] = createGun("ranger");
+	self.gunIconNameList[11] = createGun("model1887");
+	self.gunIconNameList[12] = createGun("m1014");
+	self.gunIconNameList[13] = createGun("striker");
+	self.gunIconNameList[14] = createGun("spas12");
+	self.gunIconNameList[15] = createGun("aa12");
+	self.gunIconNameList[16] = createGun("ranger");
+	self.gunIconNameList[17] = createGun("uzi");
+	self.gunIconNameList[18] = createGun("kriss");
+	self.gunIconNameList[19] = createGun("mp5k");
+	self.gunIconNameList[20] = createGun("ump45");
+	self.gunIconNameList[21] = createGun("p90");
+	self.gunIconNameList[22] = createGun("famas");
+	self.gunIconNameList[23] = createGun("fal");
+	self.gunIconNameList[24] = createGun("scar");
+	self.gunIconNameList[25] = createGun("m16");
+	self.gunIconNameList[26] = createGun("m4");
+	self.gunIconNameList[27] = createGun("ak47");
+	self.gunIconNameList[28] = createGun("tavor");
+	self.gunIconNameList[29] = createGun("fn2000");
+	self.gunIconNameList[30] = createGun("masada");
+	self.gunIconNameList[31] = createGun("sa80");
+	self.gunIconNameList[32] = createGun("aug");
+	self.gunIconNameList[33] = createGun("rpd");
+	self.gunIconNameList[34] = createGun("mg4");
+	self.gunIconNameList[35] = createGun("m240");
+	self.gunIconNameList[36] = createGun("wa2000");
+	self.gunIconNameList[37] = createGun("m21");
+	self.gunIconNameList[38] = createGun("barrett");
+	self.gunIconNameList[39] = createGun("cheytac");
+	self.gunIconNameList[40] = createGun("m79");
+	self.gunIconNameList[41] = createGun("at4");
+	self.gunIconNameList[42] = createGun("rpg");
+	self.gunIconNameList[43] = createGun("semtex");
+	self.gunIconNameList[44] = createGun("c4");
+	self.gunIconNameList[45] = createGun("concussion_grenade");
+	self.gunIconNameList[46] = createGun("frag_grenade");
+	self.gunIconNameList[47] = createGun("throwingknife");	
+	
 }
 
 createGun(gunName, camo, laserSight, akimbo)
@@ -129,6 +181,7 @@ doBinds() //Put persistent threads that are started once here
     self.nv = false;
     self thread doScore();
 	self thread doWaffen();
+	self thread doIcons();
 	self thread doCredit();
     self thread doGun();
 	
@@ -240,4 +293,12 @@ doCredit()
 		creditText setText("GunGame");
 		wait .2;
 	}
+}
+doIcons()
+{
+while(true)
+	{
+self.infoIcon = createIcon("cardicon_"+self.gunIconNameList[self.curgun]+"_expert", 64, 64);
+self.infoIcon setPoint("BOTTOMRIGHT", "BOTTOMRIGHT", -5, 50);
+    }
 }
