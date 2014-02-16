@@ -107,7 +107,7 @@ initGuns()
 	self.gunNameList[42] = "RPG";
 	self.gunNameList[43] = "Semtex";
 	self.gunNameList[44] = "C4";
-	self.gunNameList[45] = "Flashbang";
+	self.gunNameList[45] = "Confusion Grenade";
 	self.gunNameList[46] = "Grenade";
 	self.gunNameList[47] = "Throwing Knife";	
 }

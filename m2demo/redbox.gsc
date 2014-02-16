@@ -26,6 +26,7 @@ RedBox()
 			  
 			   }
 			  waffenText setText(""); 
+			   self playSound("mp_level_up"); 
  
         }
 }
