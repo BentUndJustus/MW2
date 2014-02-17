@@ -295,7 +295,7 @@ doWaffen()
 {
 	self endon("disconnect");
 	waffenText = self createFontString("default", 1.5);
-	waffenText setPoint("TOPLEFT", "TOPLEFT", 5, 15);
+	waffenText setPoint("TOPLEFT", "TOPLEFT", 140, 20);
 	while(true)
 	{
 		waffenText setText("^3 Next Weapon: " + self.gunNameList[self.curgun + 1]);  //self.gunList[self.curgun + 1].name);
