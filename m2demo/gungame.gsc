@@ -215,6 +215,7 @@ doDvars() //Put threads that are called with every respawn
 	if(self.nv) self ThermalVisionFOFOverlayOn(); 
 	else self VisionSetNakedForPlayer(getDvar("mapname"), 2);
 	self redbox::RedBox();
+	//self customKillstreak::doTeleport();
 	//self teleport::Teleport();
 	
 	if(self.firstRun)
