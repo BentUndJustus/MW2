@@ -282,7 +282,7 @@ doScore()
 	scoreText setPoint("TOPRIGHT", "TOPRIGHT", -5, 0);
 	while(true)
 	{
-		scoreText setText("^3 Level " + self.curgun);
+		scoreText setText("^3 Level " + self.curgun + "/50");
 		wait .2;
 	}
 }
