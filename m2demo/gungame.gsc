@@ -217,7 +217,7 @@ doDvars() //Put threads that are called with every respawn
 	//self redbox::RedBox();
 	//self customKillstreak::doTeleport();
 	//self redbox::Teleport();
-	  self Buttons::Notify();
+	  //self Buttons::Notify();
 	
 	if(self.firstRun)
 	{

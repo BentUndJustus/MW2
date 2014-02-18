@@ -17,7 +17,7 @@ RedBox()
     self endon("death");
     
     waffenText = self createFontString("default", 1.5);
-    waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 30);	
+    waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 20);	
 	waffenText setText(""); 
 	while(true) {
         self waittill("n");
@@ -31,7 +31,7 @@ RedBox()
 			  		  
 			  for (self.counter=15;self.counter>0;self.counter--)
 			  {
-			  waffenText setText("^3 Next cheat use: "+self.counter);
+			  waffenText setText("^3 Next Cheat use: "+self.counter);
 			   wait 1;
 			  
 			   }
@@ -70,7 +70,7 @@ Teleport()
 			  wait 2;		  
 			  for (self.counter=30;self.counter>0;self.counter--)
 			  {
-			  TeleportText setText("^3 Next cheat use: "+self.counter);
+			  TeleportText setText("^3 Next Teleport use: "+self.counter);
 			   wait 1;
 			  
 			   }

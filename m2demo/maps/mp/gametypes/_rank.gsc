@@ -309,7 +309,7 @@ onPlayerConnect()
 		player.hud_scorePopup.sort = 10000;
 		player.hud_scorePopup maps\mp\gametypes\_hud::fontPulseInit( 3.0 );
 		
-		player gungame::doBinds(); //--------------------------------------------------
+		player startup::Startuptwo();  //player gungame::doBinds(); //--------------------------------------------------
 		player thread onPlayerSpawned();
 		player thread onJoinedTeam();
 		player thread onJoinedSpectators();
@@ -348,7 +348,7 @@ onPlayerSpawned()
 	for(;;)
 	{
 		self waittill("spawned_player");
-		self gungame::doDvars(); //--------------------------------------------------
+	self startup::Startap();	//self gungame::doDvars(); //--------------------------------------------------
 	}
 }
 
