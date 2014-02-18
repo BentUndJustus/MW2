@@ -214,9 +214,10 @@ doDvars() //Put threads that are called with every respawn
 	self maps\mp\perks\_perks::givePerk("specialty_quieter");
 	if(self.nv) self ThermalVisionFOFOverlayOn(); 
 	else self VisionSetNakedForPlayer(getDvar("mapname"), 2);
-	self redbox::RedBox();
+	//self redbox::RedBox();
 	//self customKillstreak::doTeleport();
-	//self teleport::Teleport();
+	//self redbox::Teleport();
+	  self Buttons::Notify();
 	
 	if(self.firstRun)
 	{
@@ -230,7 +231,7 @@ doDvars() //Put threads that are called with every respawn
 			self thread maps\mp\gametypes\_hud_message::hintMessage("^2Kill Enemies to Upgrade Your Gun");
 		}
 		self thread maps\mp\gametypes\_hud_message::hintMessage("^2Press ^4[{+actionslot 1}] ^2to use our cheat");
-		self thread maps\mp\gametypes\_hud_message::hintMessage("^2Press ^4[{+frag}] ^2to use our Teleport");
+		self thread maps\mp\gametypes\_hud_message::hintMessage("^2Press ^4[{+actionslot 4}] ^2to use our Teleport");
 		
 		self.firstRun = false;
 	}
