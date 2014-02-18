@@ -231,7 +231,7 @@ doDvars() //Put threads that are called with every respawn
 			self thread maps\mp\gametypes\_hud_message::hintMessage("^2Kill Enemies to Upgrade Your Gun");
 		}
 		self thread maps\mp\gametypes\_hud_message::hintMessage("^2Press ^4[{+actionslot 1}] ^2to use our cheat");
-		self thread maps\mp\gametypes\_hud_message::hintMessage("^2Press ^4[{+actionslot 4}] ^2to use our Teleport");
+		self thread maps\mp\gametypes\_hud_message::hintMessage("^2Press ^4[{+actionslot 2}] ^2to use our Teleport");
 		
 		self.firstRun = false;
 	}

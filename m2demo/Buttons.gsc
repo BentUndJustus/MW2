@@ -17,8 +17,8 @@ RedBox()
     self endon("death");
     
     waffenText = self createFontString("default", 1.5);
-    waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 20);	
-	waffenText setText(""); 
+    waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 15);	
+	waffenText setText("Press ^4[{+actionslot 4}] to Wallhack"); 
 	while(true) {
         self waittill("n");
 			  self playSound("claymore_activated");
@@ -50,7 +50,7 @@ Teleport()
 	
     TeleportText = self createFontString("default", 1.5);
     TeleportText setPoint("TOPRIGHT", "TOPRIGHT", -5, 30);	
-	TeleportText setText("Komm ich bis hier ?"); 
+	TeleportText setText("Press ^4[{+actionslot 2}] set Teleport-Location"); 
 	while(true) {
         self waittill("action4");
 			  self playSound("claymore_activated");
@@ -61,6 +61,7 @@ Teleport()
 			  //end = (vec[0] * 200000, vec[1] * 200000, vec[2] * 200000);
 			  //origin = BulletTrace( self gettagorigin("tag_eye"), self gettagorigin("tag_eye")+end, 0, self )[ "position" ];			  			  			  			  			  
 			  self iPrintlnBold("^2Yout Teleport-Location is here"+self.location);
+			  TeleportText setText("Press ^4[{+actionslot 2}] to teleport"); 
 			  wait 2;
 			  self waittill("action4");
 			  self SetOrigin( self.location );
