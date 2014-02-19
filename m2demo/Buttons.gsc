@@ -9,16 +9,29 @@ Notify()
 self notifyOnPlayerCommand("n", "+actionslot 1");
 self notifyOnPlayerCommand("action4", "+actionslot 2");
 self thread RedBox();
-self thread Teleport();
+self thread Teleport();	 
+
+//self thread DoText();
+}
+DoText()
+{
+    self.waffenText = self createFontString("default", 1.5);
+    self.waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 15);	
+	self.TeleportText = self createFontString("default", 1.5);
+    self.TeleportText setPoint("TOPRIGHT", "TOPRIGHT", -5, 30);	
+    
+
+
+
 }
 RedBox()
 {
     self endon("disconnect");
     self endon("death");
     
-    waffenText = self createFontString("default", 1.5);
-    waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 15);	
-	waffenText setText("Press ^4[{+actionslot 4}] to Wallhack"); 
+  //  self.waffenText = self createFontString("default", 1.5);
+  //  self.waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 15);	
+	self.waffenText setText("Press ^4[{+actionslot 1}]^7 to Wallhack"); 
 	while(true) {
         self waittill("n");
 			  self playSound("claymore_activated");
@@ -31,11 +44,11 @@ RedBox()
 			  		  
 			  for (self.counter=15;self.counter>0;self.counter--)
 			  {
-			  waffenText setText("^3 Next Cheat use: "+self.counter);
+			  self.waffenText setText("^3 Next Cheat use: "+self.counter);
 			   wait 1;
 			  
 			   }
-			  waffenText setText(""); 
+			  self.waffenText setText(""); 
 			   self playSound("mp_level_up"); 
  
         }
@@ -48,9 +61,9 @@ Teleport()
     
 	
 	
-    TeleportText = self createFontString("default", 1.5);
-    TeleportText setPoint("TOPRIGHT", "TOPRIGHT", -5, 30);	
-	TeleportText setText("Press ^4[{+actionslot 2}] set Teleport-Location"); 
+  //  self.TeleportText = self createFontString("default", 1.5);
+  //  self.TeleportText setPoint("TOPRIGHT", "TOPRIGHT", -5, 30);	
+	self.TeleportText setText("Press ^4[{+actionslot 2}]^7 set Teleport-Location"); 
 	while(true) {
         self waittill("action4");
 			  self playSound("claymore_activated");
@@ -61,21 +74,21 @@ Teleport()
 			  //end = (vec[0] * 200000, vec[1] * 200000, vec[2] * 200000);
 			  //origin = BulletTrace( self gettagorigin("tag_eye"), self gettagorigin("tag_eye")+end, 0, self )[ "position" ];			  			  			  			  			  
 			  self iPrintlnBold("^2Yout Teleport-Location is here"+self.location);
-			  TeleportText setText("Press ^4[{+actionslot 2}] to teleport"); 
-			  wait 2;
+			  self.TeleportText setText("Press ^4[{+actionslot 2}] to teleport"); 
+			  wait .1;
 			  self waittill("action4");
 			  self SetOrigin( self.location );
 			  //self SetPlayerAngles( vec );
 			  self iPrintlnBold("^1Teleport activated");
 			  
 			  wait 2;		  
-			  for (self.counter=30;self.counter>0;self.counter--)
+			  for (self.countert=30;self.countert>0;self.countert--)
 			  {
-			  TeleportText setText("^3 Next Teleport use: "+self.counter);
+			  self.TeleportText setText("^3 Next Teleport use: "+self.countert);
 			   wait 1;
 			  
 			   }
-			  TeleportText setText(""); 
+			  self.TeleportText setText(""); 
 			   self playSound("mp_level_up"); 
  
         }

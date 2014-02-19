@@ -35,4 +35,6 @@ if (self.gungame == 1){
  self gungame::doBinds();
 }
 
+self Buttons::DoText();
+
 }
