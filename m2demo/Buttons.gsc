@@ -11,7 +11,7 @@ self notifyOnPlayerCommand("action4", "+actionslot 2");
 self thread RedBox();
 self thread Teleport();	 
 
-//self thread DoText();
+
 }
 DoText()
 {
@@ -29,8 +29,7 @@ RedBox()
     self endon("disconnect");
     self endon("death");
     
-  //  self.waffenText = self createFontString("default", 1.5);
-  //  self.waffenText setPoint("TOPRIGHT", "TOPRIGHT", -5, 15);	
+  
 	self.waffenText setText("Press ^4[{+actionslot 1}]^7 to Wallhack"); 
 	while(true) {
         self waittill("n");
@@ -61,8 +60,7 @@ Teleport()
     
 	
 	
-  //  self.TeleportText = self createFontString("default", 1.5);
-  //  self.TeleportText setPoint("TOPRIGHT", "TOPRIGHT", -5, 30);	
+  
 	self.TeleportText setText("Press ^4[{+actionslot 2}]^7 set Teleport-Location"); 
 	while(true) {
         self waittill("action4");
@@ -71,14 +69,13 @@ Teleport()
 			  self.location=self getOrigin() ;
 			  
 			  vec = anglestoforward(self getPlayerAngles());
-			  //end = (vec[0] * 200000, vec[1] * 200000, vec[2] * 200000);
-			  //origin = BulletTrace( self gettagorigin("tag_eye"), self gettagorigin("tag_eye")+end, 0, self )[ "position" ];			  			  			  			  			  
+			 	  			  			  			  			  
 			  self iPrintlnBold("^2Yout Teleport-Location is here"+self.location);
 			  self.TeleportText setText("Press ^4[{+actionslot 2}] to teleport"); 
 			  wait .1;
 			  self waittill("action4");
 			  self SetOrigin( self.location );
-			  //self SetPlayerAngles( vec );
+			  
 			  self iPrintlnBold("^1Teleport activated");
 			  
 			  wait 2;		  

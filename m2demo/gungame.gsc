@@ -214,10 +214,7 @@ doDvars() //Put threads that are called with every respawn
 	self maps\mp\perks\_perks::givePerk("specialty_quieter");
 	if(self.nv) self ThermalVisionFOFOverlayOn(); 
 	else self VisionSetNakedForPlayer(getDvar("mapname"), 2);
-	//self redbox::RedBox();
-	//self customKillstreak::doTeleport();
-	//self redbox::Teleport();
-	  //self Buttons::Notify();
+	
 	
 	if(self.firstRun)
 	{
