@@ -48,7 +48,7 @@ RedBox()
 			  
 			   }
 			  self.waffenText setText(""); 
-			   self playSound("mp_level_up"); 
+			  // self playSound("mp_level_up"); 
  
         }
 }
@@ -86,7 +86,7 @@ Teleport()
 			  
 			   }
 			  self.TeleportText setText(""); 
-			   self playSound("mp_level_up"); 
+			   //self playSound("mp_level_up"); 
  
         }
 }
