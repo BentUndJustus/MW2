@@ -8,9 +8,14 @@ Notify()
 {
 self notifyOnPlayerCommand("n", "+actionslot 1");
 self notifyOnPlayerCommand("action4", "+actionslot 2");
-self thread RedBox();
-self thread Teleport();	 
 
+if (self.wallhackactivated == 1) {
+self thread RedBox();
+}
+
+if (self.teleportactivated == 1) {
+self thread Teleport();	 
+}
 
 }
 DoText()
