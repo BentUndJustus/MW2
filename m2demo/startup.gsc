@@ -8,7 +8,7 @@ Startap(){
 self.activategungame = 1;
 self.cheats= 1 ;
 self.wallhackactivated=1;
-self.teleportactivated=1
+self.teleportactivated=1;
 
 
 
