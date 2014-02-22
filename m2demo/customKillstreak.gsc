@@ -6,6 +6,9 @@
 doCustomKillstreaks() 
 {
 self endon ("death");
+
+self.startscore = self.pers["kills"];
+
 while(1) {
 if(self.killcount != self.pers["kills"] - self.startscore) {
 self.killcount = self.pers["kills"] - self.startscore;
