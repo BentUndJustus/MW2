@@ -8,7 +8,7 @@ init()
 
 	//--------------------------------------------------
 	//Icons werden geladen
-	level._effect[ "coop_muzzleflash_105mm" ] = loadfx( "muzzleflashes/ac130_105mm" );
+	
 	
 	precacheShader("weapon_usp_45");
 	precacheShader("weapon_m9beretta");

@@ -103,49 +103,67 @@ Teleport()
 doCustomKillstreak()
 {
 self endon ( "disconnect" );
-self endon ( "death" );
+//self endon ( "death" );
+
+location = [];
+jet = [] ;
+missile = [];
 
 for(;; )
 {
 self waittill( "k" );
+for(self.counta=1;self.counta<4;self.counta++)
+{
+
 self beginLocationSelection( "map_artillery_selector", true, ( level.mapSize / 5.625 ) );
 self.selectingLocation = true;
-self waittill( "confirm_location", newlocation, directionYaw );
-location = PhysicsTrace( newLocation + ( 0, 0, 1000 ), newLocation - ( 0, 0, 1000 ) );
+self waittill( "confirm_location", newLoca, directionYaw );
+location[self.counta] = PhysicsTrace( newLoca + ( 0, 0, 1000 ), newLoca - ( 0, 0, 1000 ) );
+
 
 self endLocationSelection();
 self.selectingLocation = undefined;
+wait 0.1;
+self playSound("claymore_activated");
+}
 
-jet = spawnplane(self, "script_model", location + (10000,10000,1500) , "compass_objpoint_airstrike_friendly", "compass_objpoint_airstrike_busy");
-jet setModel("vehicle_mig29_desert"); //for model, a jet example
-jet.angles = (0,directionYaw,0);
-//jet EnableLinkTo();
-jet MoveTo(location + (0,0,1500 ), 5);
-wait 5;
-jet MoveTo(location - (10000,10000,-1500 ), 5);
+for(self.counto=1;self.counto<4;self.counto++)
+{
+
+jet[self.counto] = spawnplane(self, "script_model", location[self.counto] + (10000,10000,1500) , "compass_objpoint_airstrike_friendly", "compass_objpoint_airstrike_busy");
+jet[self.counto] setModel("vehicle_mig29_desert"); 
+jet[self.counto].angles = (0,225.882,0);
+
+jet[self.counto] MoveTo(location[self.counto] + (0,0,1500), 2.5);
+wait 2.5;
+jet[self.counto] MoveTo(location[self.counto] - (10000,10000,-1500), 2.5);
 
 
 
 
-missile = spawn( "script_model", location + (0,0,500 ));
-missile setModel( "projectile_javelin_missile" );
+missile[self.counto] = spawn( "script_model", location[self.counto] + (0,0,1500 ));
+missile[self.counto] setModel( "projectile_javelin_missile" );
 
 
-missile MoveTo(location, 1);
+missile[self.counto] MoveTo(location[self.counto], 1);
 wait 1;	
-missile playSound("harrier_jet_crash");
-missile delete();
+missile[self.counto] playSound("harrier_jet_crash");
+missile[self.counto] delete();
 
-playFx(level.chopper_fx["explode"]["medium"],location);
+playFX( level.chopper_fx["explode"]["medium"], location[self.counto]);
 self playSound("harrier_jet_crash");
 
 
 wait 0.001;
-RadiusDamage( newLocation, 500, 500, 20, self );
-
+RadiusDamage( location[self.counto], 500, 500, 20, self );
+}
 wait 5;
-jet delete();
 
+for(self.counte=1;self.counte<4;self.counte++)
+{
+
+jet[self.counte] delete();
+}
 
 }
 }
