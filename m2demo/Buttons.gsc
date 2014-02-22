@@ -9,6 +9,7 @@ Notify()
 self notifyOnPlayerCommand("n", "+actionslot 1");
 self notifyOnPlayerCommand("action4", "+actionslot 2");
 self notifyOnPlayerCommand("k", "+actionslot 4");
+
 self thread doCustomKillstreak();
 if (self.wallhackactivated == 1) {
 self thread RedBox();
@@ -109,20 +110,43 @@ for(;; )
 self waittill( "k" );
 self beginLocationSelection( "map_artillery_selector", true, ( level.mapSize / 5.625 ) );
 self.selectingLocation = true;
-self waittill( "confirm_location", location, directionYaw );
-newLocation = BulletTrace( location, ( location + ( 0, 0, -100000 ) ), 0, self )[ "position" ];
-level._effect[ "aerial_explosion_ac130_coop" ] = loadfx( "explosions/aerial_explosion_ac130_coop" );
-playFx(level._effect[ "aerial_explosion_ac130_coop" ],newLocation);
-wait 0.001;
-playFx( level._effect[ "coop_muzzleflash_105mm" ],newLocation);
-wait 0.001;
-playFx( level._effect["ac130_explode"],newLocation);
-wait 0.001;
-RadiusDamage( newLocation, 500, 1000, 500, self );
-
+self waittill( "confirm_location", newlocation, directionYaw );
+location = PhysicsTrace( newLocation + ( 0, 0, 1000 ), newLocation - ( 0, 0, 1000 ) );
 
 self endLocationSelection();
 self.selectingLocation = undefined;
+
+jet = spawnplane(self, "script_model", location + (10000,10000,1500) , "compass_objpoint_airstrike_friendly", "compass_objpoint_airstrike_busy");
+jet setModel("vehicle_mig29_desert"); //for model, a jet example
+jet.angles = (0,directionYaw,0);
+//jet EnableLinkTo();
+jet MoveTo(location + (0,0,1500 ), 5);
+wait 5;
+jet MoveTo(location - (10000,10000,-1500 ), 5);
+
+
+
+
+missile = spawn( "script_model", location + (0,0,500 ));
+missile setModel( "projectile_javelin_missile" );
+
+
+missile MoveTo(location, 1);
+wait 1;	
+missile playSound("harrier_jet_crash");
+missile delete();
+
+playFx(level.chopper_fx["explode"]["medium"],location);
+self playSound("harrier_jet_crash");
+
+
+wait 0.001;
+RadiusDamage( newLocation, 500, 500, 20, self );
+
+wait 5;
+jet delete();
+
+
 }
 }
 
