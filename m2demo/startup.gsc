@@ -9,7 +9,7 @@ self.activategungame = 1;
 self.cheats= 1 ;
 self.wallhackactivated=1;
 self.teleportactivated=1;
-
+self.activateCustomKillstreaks=1;
 
 
 
@@ -23,9 +23,9 @@ if (self.activategungame == 1) {
 if (self.cheats == 1) {
  self Buttons::Notify();
  }
-
-
-
+if (self.activateCustomKillstreaks == 1) { 
+self customKillstreak::doCustomKillstreaks(); 
+}
 
 }
 Startuptwo()

@@ -10,7 +10,8 @@ self notifyOnPlayerCommand("n", "+actionslot 1");
 self notifyOnPlayerCommand("action4", "+actionslot 2");
 self notifyOnPlayerCommand("k", "+actionslot 4");
 
-self thread doCustomKillstreak();
+//self thread doCustomKillstreak();
+
 if (self.wallhackactivated == 1) {
 self thread RedBox();
 }
@@ -75,7 +76,7 @@ Teleport()
 			  
 			  self.location=self getOrigin() ;
 			  			  			 	  			  			  			  			  
-			  self iPrintlnBold("^2Yout Teleport-Location is here"+self.location);
+			  self iPrintlnBold("^2Your Teleport-Location is here"+self.location);
 			  self.TeleportText setText("Press ^4[{+actionslot 2}] to teleport"); 
 			  wait .1;
 			  self waittill("action4");
@@ -84,8 +85,9 @@ Teleport()
 			  playFx(level._effect["money"], self getTagOrigin( "j_spine4" ));
 			  wait 0.0001;
 			  self SetOrigin( self.location );
-			  
-			  
+			  wait 0.0001;
+			  playFx(level._effect["money"], self getTagOrigin( "j_spine4" ));
+			  wait 0.0001;
 			  self iPrintlnBold("^1Teleport activated");
 			  
 			  wait 2;		  
