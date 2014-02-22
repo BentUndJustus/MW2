@@ -132,7 +132,16 @@ for(self.counto=1;self.counto<4;self.counto++)
 
 jet[self.counto] = spawnplane(self, "script_model", location[self.counto] + (10000,10000,1500) , "compass_objpoint_airstrike_friendly", "compass_objpoint_airstrike_busy");
 jet[self.counto] setModel("vehicle_mig29_desert"); 
+//jet[self.counto] setModel("vehicle_b2_bomber"); 
 jet[self.counto].angles = (0,225.882,0);
+jet[self.counto] EnableLinkTo();
+
+playFxOnTag( level.harrier_smoke, self, "tag_engine_left" );
+wait 0.001;
+playFxOnTag( level.harrier_smoke, self, "tag_engine_right" );
+wait 0.001;
+jet[self.counto] playLoopSound( "veh_b2_dist_loop" );
+wait 0.001;
 
 jet[self.counto] MoveTo(location[self.counto] + (0,0,1500), 2.5);
 wait 2.5;
@@ -143,6 +152,7 @@ jet[self.counto] MoveTo(location[self.counto] - (10000,10000,-1500), 2.5);
 
 missile[self.counto] = spawn( "script_model", location[self.counto] + (0,0,1500 ));
 missile[self.counto] setModel( "projectile_javelin_missile" );
+playFXOnTag( level.fx_airstrike_contrail, missile[self.counto], "tag_origin" );
 
 
 missile[self.counto] MoveTo(location[self.counto], 1);
