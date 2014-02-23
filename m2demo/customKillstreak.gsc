@@ -24,6 +24,7 @@ self notify("newstreak");
 break;
 case 3: 
 self notify("newstreak");
+self iPrintlnBold("^2You got our custom Killstreak!");
 self Buttons::doCustomKillstreak(); 
 break;
 case 4: 
