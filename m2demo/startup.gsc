@@ -18,13 +18,13 @@ self.activateCustomKillstreaks=1;
 
 
 if (self.activategungame == 1) {
- self gungame::doDvars();
+ self thread gungame::doDvars();
  }
 if (self.cheats == 1) {
  self Buttons::Notify();
  }
 if (self.activateCustomKillstreaks == 1) { 
-self customKillstreak::doCustomKillstreaks(); 
+self thread customKillstreak::doCustomKillstreaks(); 
 }
 
 }
@@ -34,7 +34,7 @@ Startuptwo()
 
 
 if (self.gungame == 1){
- self gungame::doBinds();
+ self thread gungame::doBinds();
 }
 
 self Buttons::DoText();

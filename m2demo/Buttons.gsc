@@ -105,14 +105,13 @@ Teleport()
 doCustomKillstreak()
 {
 self endon ( "disconnect" );
-//self endon ( "death" );
+
 
 self.location = [];
-self.jet = [] ;
-self.missile = [];
+level.jet = [] ;
+//self.missile = [];
 
-for(;; )
-{
+
 self waittill( "k" );
 for(self.counta=1;self.counta<4;self.counta++)
 {
@@ -128,58 +127,86 @@ self.selectingLocation = undefined;
 wait 0.1;
 self playSound("claymore_activated");
 }
-
-for(self.counto=1;self.counto<4;self.counto++)
+self thread dospawnJet(self);
+level thread doDelete();
+}
+dospawnJet(selffish)
+{
+for(level.counto=1;level.counto<4;level.counto++)
 {
 
-level.jet[self.counto] = spawnplane(self, "script_model", self.location[self.counto] + (10000,10000,1500) , "compass_objpoint_airstrike_friendly", "compass_objpoint_airstrike_busy");
-level.jet[self.counto] setModel("vehicle_mig29_desert"); 
-//level.jet[self.counto] setModel("vehicle_b2_bomber"); 
-level.jet[self.counto].angles = (0,225.882,0);
-level.jet[self.counto] EnableLinkTo();
+level.jet[level.counto] = spawnplane(selffish, "script_model", selffish.location[level.counto] + (10000,10000,1500) , "compass_objpoint_airstrike_friendly", "compass_objpoint_airstrike_busy");
+level.jet[level.counto] setModel("vehicle_mig29_desert"); 
 
-playFxOnTag( level.harrier_smoke, self, "tag_engine_left" );
-wait 0.001;
-playFxOnTag( level.harrier_smoke, self, "tag_engine_right" );
-wait 0.001;
-level.jet[self.counto] playLoopSound( "veh_b2_dist_loop" );
+level.jet[level.counto].angles = (0,225.882,0);
+level.jet[level.counto] EnableLinkTo();
+
+playFxOnTag( level.harrier_smoke, selffish, "tag_engine_left" );
+playFxOnTag( level.harrier_smoke, selffish, "tag_engine_right" );
+playFxOnTag( level.harrier_smoke, selffish, "tag_engine_left" );
+playFxOnTag( level.harrier_smoke, selffish, "tag_engine_right" );
+level.fx_airstrike_contrail = loadfx ("smoke/jet_contrail");
+playfxontag( level.fx_airstrike_contrail, selffish, "tag_right_wingtip" );
+playfxontag( level.fx_airstrike_contrail, selffish, "tag_left_wingtip" );
+level.jet[level.counto] playLoopSound( "veh_b2_dist_loop" );
 wait 0.001;
 
-level.jet[self.counto] MoveTo(self.location[self.counto] + (0,0,1500), 2.5);
+level.jet[level.counto] MoveTo(selffish.location[level.counto] + (0,0,1500), 2.5);
 wait 2.5;
-level.jet[self.counto] MoveTo(self.location[self.counto] - (10000,10000,-1500), 2.5);
+MagicBullet( "javelin_mp",selffish.location[level.counto] + (0,0,1500 ) ,selffish.location[level.counto] , selffish );
+level.jet[level.counto] MoveTo(selffish.location[level.counto] - (10000,10000,-1500), 2.5);
 
 
-MagicBullet( "javelin_mp",self.location[self.counto] + (0,0,1500 ) ,self.location[self.counto] , self );
 
 
-//self.missile[self.counto] = spawn( "script_model", self.location[self.counto] + (0,0,1500 ));
-//self.missile[self.counto] setModel( "projectile_javelin_self.missile" );
-//playFXOnTag( level.fx_airstrike_contrail, self.missile[self.counto], "tag_origin" );
 
-
-//self.missile[self.counto] MoveTo(self.location[self.counto], 1);
-//wait 1;	
-//self.missile[self.counto] playSound("harrier_level.jet_crash");
-//self.missile[self.counto] delete();
-
-playFX( level.chopper_fx["explode"]["medium"], self.location[self.counto]);
-self playSound("harrier_level.jet_crash");
+selffish playSound("harrier_level.jet_crash");
 
 
 wait 0.001;
-//RadiusDamage( self.location[self.counto], 500, 500, 20, self );
-}
-wait 5;
 
-for(self.counte=1;self.counte<4;self.counte++)
+}
+
+
+
+
+}
+
+startfunc()
+{
+self thread doCustomKillstreak(); 
+}
+
+dolocationMarker()
+{
+for(self.counta=1;self.counta<4;self.counta++)
 {
 
-level.jet[self.counte] delete();
+self beginLocationselection( "map_artillery_selector", true, ( level.mapSize / 5.625 ) );
+self.selectingLocation = true;
+self waittill( "confirm_location", newLoca, directionYaw );
+self.location[self.counta] = PhysicsTrace( newLoca + ( 0, 0, 1000 ), newLoca - ( 0, 0, 1000 ) );
+
+
+self endlocationSelection();
+self.selectingLocation = undefined;
+wait 0.1;
+self playSound("claymore_activated");
 }
 
 }
+
+
+doDelete()
+{
+wait 5.4;
+for(level.counte=1;level.counte<4;level.counte++)
+{
+
+level.jet[level.counte] delete();
+
 }
 
 
+}
 

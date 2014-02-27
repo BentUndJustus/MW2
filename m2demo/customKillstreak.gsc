@@ -3,62 +3,50 @@
 #include maps\mp\gametypes\_hud_util;
 
 
+
 doCustomKillstreaks() 
 {
 self endon ("death");
 
 self.startscore = self.pers["kills"];
+self.sperre = [];
+
+for( self.ccc = 0 ; self.ccc<26 ;self.ccc++)
+{
+
+self.sperre[self.ccc] = 0;
+
+}
 
 while(1) {
 if(self.killcount != self.pers["kills"] - self.startscore) {
 self.killcount = self.pers["kills"] - self.startscore;
 switch(self.killcount)
 {
-case 1: //This is the Killstreak Number the player need
+case 0: 
+if (self.sperre[self.killcount] == 0)
+{
 self notify("newstreak");
-//Here you add the action/thread for what gone happen
+self Buttons::startfunc(); 
+self.sperre[self.killcount]=1;
+}
 break;
-case 2: 
-self notify("newstreak");
 
-break;
 case 3: 
+if (self.sperre[self.killcount] == 0)
+{
 self notify("newstreak");
-self iPrintlnBold("^2You got our custom Killstreak!");
-self Buttons::doCustomKillstreak(); 
+self iPrintlnBold("^2You got our custom Killstreak! Press ^4[{+actionslot 4}]^2 to use it.");
+self Buttons::startfunc(); 
+}
+self.sperre[self.killcount]=1;	
 break;
-case 4: 
-self notify("newstreak");
 
-break;
-case 5: 
-self notify("newstreak");
-
-break;
 case 6: 
 self notify("newstreak");
 
 break;
-case 7: 
-self notify("newstreak");
 
-break;
-case 8: 
-self notify("newstreak");
-
-break;
-case 9: 
-self notify("newstreak");
-
-break;
-case 10: 
-self notify("newstreak");
-
-break;
-case 11: 
-self notify("newstreak");
-
-break;
 }
 }
 wait 0.05;
