@@ -137,7 +137,10 @@ for(level.counto=1;level.counto<4;level.counto++)
 
 level.jet[level.counto] = spawnplane(selffish, "script_model", selffish.location[level.counto] + (10000,10000,1500) , "compass_objpoint_airstrike_friendly", "compass_objpoint_airstrike_busy");
 level.jet[level.counto] setModel("vehicle_mig29_desert"); 
-
+level.jet[level.counto] setCanDamage( true );
+level.jet[level.counto].maxhealth = 1000;
+level.jet[level.counto].health = level.jet[level.counto].maxhealth;
+//level.jet[level.counto] thread damageTracker();
 level.jet[level.counto].angles = (0,225.882,0);
 level.jet[level.counto] EnableLinkTo();
 

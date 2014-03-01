@@ -6,7 +6,7 @@
 
 doCustomKillstreaks() 
 {
-self endon ("death");
+self endon ("deathomat");
 
 self.startscore = self.pers["kills"];
 self.sperre = [];
@@ -56,4 +56,13 @@ wait 0.05;
 
 
 }
+if (self.health<1) {
+wait 5;
+self notify("deathomat");
+
+}
+
+
+
+
 }
