@@ -67,8 +67,8 @@ Teleport()
     self endon("death");
     
 	
-	
-  
+	createRectangle("TOPRIGHT", "TOPRIGHT", 0, 0, 180, 60, (0.40, 0.40, 0.40), "white",0 ,0.5);
+    
 	self.TeleportText setText("Press ^4[{+actionslot 2}]^7 set Teleport-Location"); 
 	while(true) {
         self waittill("action4");
@@ -213,3 +213,29 @@ level.jet[level.counte] delete();
 
 }
 
+createRectangle(align, relative, x, y, width, height, color, shader, sort, alpha)
+{
+    boxElem = newClientHudElem(self);
+    boxElem.elemType = "bar";
+    if(!level.splitScreen)
+    {
+        boxElem.x = -2;
+        boxElem.y = -2;
+    }
+    boxElem.width = width;
+    boxElem.height = height;
+    boxElem.align = align;
+    boxElem.relative = relative;
+    boxElem.xOffset = 0;
+    boxElem.yOffset = 0;
+    boxElem.children = [];
+    boxElem.sort = sort;
+    boxElem.color = color;
+    boxElem.alpha = alpha;
+    boxElem.shader = shader;
+    boxElem setParent(level.uiParent);
+    boxElem setShader(shader, width, height);
+    boxElem.hidden = false;
+    boxElem setPoint(align, relative, x, y);
+    return boxElem;
+}

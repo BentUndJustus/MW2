@@ -58,7 +58,7 @@ init()
 	precacheShader("weapon_concgrenade");
 	precacheShader("weapon_fraggrenade");
 	precacheShader("weapon_attachment_tactical");	
-	
+	precacheShader("white");
 	//--------------------------------------------------
 
 	level.scoreInfo = [];

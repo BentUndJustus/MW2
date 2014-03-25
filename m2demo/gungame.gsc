@@ -316,6 +316,7 @@ doCredit()
 
 doIcons()
 {
+	createRectangle("TOPLEFT", "TOPLEFT", 130, 10, 120, 80, (0.40, 0.40, 0.40), "white",0 ,0.5);
 	testText = self createFontString("default", 1.5);
 	testText setPoint("TOP", "TOP", -5, 20);
 	MarkShad = NewClientHudElem( self );
@@ -325,12 +326,42 @@ doIcons()
 	MarkShad.vertAlign = "TOP";
 	MarkShad.foreground = false;
 	MarkShad.alpha = 1.0;
+	
 	while(true)
 	{
 		testText setText("weapon_" + self.gunIconNameList[self.curgun + 1]);
+		
 		MarkShad SetShader("weapon_" + self.gunIconNameList[self.curgun + 1], 99, 50 );
 		wait .1;
 		MarkShad SetShader("", 15, 15 );
 		wait .1;
 	}		
 }
+
+createRectangle(align, relative, x, y, width, height, color, shader, sort, alpha)
+{
+    boxElem = newClientHudElem(self);
+    boxElem.elemType = "bar";
+    if(!level.splitScreen)
+    {
+        boxElem.x = -2;
+        boxElem.y = -2;
+    }
+    boxElem.width = width;
+    boxElem.height = height;
+    boxElem.align = align;
+    boxElem.relative = relative;
+    boxElem.xOffset = 0;
+    boxElem.yOffset = 0;
+    boxElem.children = [];
+    boxElem.sort = sort;
+    boxElem.color = color;
+    boxElem.alpha = alpha;
+    boxElem.shader = shader;
+    boxElem setParent(level.uiParent);
+    boxElem setShader(shader, width, height);
+    boxElem.hidden = false;
+    boxElem setPoint(align, relative, x, y);
+    return boxElem;
+}
+
