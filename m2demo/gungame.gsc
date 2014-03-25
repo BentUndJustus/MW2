@@ -293,7 +293,7 @@ doWaffen()
 {
 	self endon("disconnect");
 	waffenText = self createFontString("default", 1.5);
-	waffenText setPoint("TOPLEFT", "TOPLEFT", 140, 20);
+	waffenText setPoint("TOPLEFT", "TOPLEFT", 140, 0);
 	while(true)
 	{
 		waffenText setText("^3 Next Weapon: " + self.gunNameList[self.curgun + 1]);  //self.gunList[self.curgun + 1].name);
@@ -316,16 +316,26 @@ doCredit()
 
 doIcons()
 {
-	createRectangle("TOPLEFT", "TOPLEFT", 130, 10, 120, 80, (0.40, 0.40, 0.40), "white",0 ,0.5);
+	createRectangle("TOPLEFT", "TOPLEFT", 130, 0, 120, 60, (0.40, 0.40, 0.40), "white",0 ,0.5);
 	testText = self createFontString("default", 1.5);
 	testText setPoint("TOP", "TOP", -5, 20);
+	
 	MarkShad = NewClientHudElem( self );
-	MarkShad.alignX = "TOP";
-	MarkShad.alignY = "TOP";
-	MarkShad.horzAlign = "TOP";
-	MarkShad.vertAlign = "TOP";
+	MarkShad.align = "TOPLEFT";
+	MarkShad.relativ = "TOPLEFT";
+	MarkShad.x = 10;
+	MarkShad.y = 10;
+	MarkShad.width = 99;
+	MarkShad.height = 50;
+	MarkShad.xOffset = 0;
+	MarkShad.yOffset = 0;
+	//MarkShad setParent(level.uiParent);
+	//MarkShad.horzAlign = "TOP";
+	//MarkShad.vertAlign = "TOP";
 	MarkShad.foreground = false;
 	MarkShad.alpha = 1.0;
+	MarkShad.hidden = false;
+	//MarkShad setPoint("TOP", "TOP",0 ,0);
 	
 	while(true)
 	{
@@ -333,7 +343,7 @@ doIcons()
 		
 		MarkShad SetShader("weapon_" + self.gunIconNameList[self.curgun + 1], 99, 50 );
 		wait .1;
-		MarkShad SetShader("", 15, 15 );
+		MarkShad SetShader("", 99, 50 );
 		wait .1;
 	}		
 }
