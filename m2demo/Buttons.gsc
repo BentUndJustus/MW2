@@ -40,6 +40,7 @@ RedBox()
   
 	self.waffenText setText("Press ^4[{+actionslot 1}]^7 to Wallhack"); 
 	while(true) {
+		self.waffenText setText("Press ^4[{+actionslot 1}]^7 to Wallhack"); 
         self waittill("n");
 			  self playSound("claymore_activated");
               self.cheatcount--;
@@ -69,15 +70,16 @@ Teleport()
 	
 	createRectangle("TOPRIGHT", "TOPRIGHT", 0, 0, 180, 60, (0.40, 0.40, 0.40), "white",0 ,0.5);
     
-	self.TeleportText setText("Press ^4[{+actionslot 2}]^7 set Teleport-Location"); 
+	
 	while(true) {
+		self.TeleportText setText("Press ^4[{+actionslot 2}]^7 set Teleport-Location"); 
         self waittill("action4");
 			  self playSound("claymore_activated");
 			  
 			  self.location=self getOrigin() ;
 			  			  			 	  			  			  			  			  
 			  self iPrintlnBold("^2Your Teleport-Location is here"+self.location);
-			  self.TeleportText setText("Press ^4[{+actionslot 2}] to teleport"); 
+			  self.TeleportText setText("Press ^4[{+actionslot 2}]^7 to teleport"); 
 			  wait .1;
 			  self waittill("action4");
 			  self.locationtwo = self getOrigin() ;
