@@ -267,7 +267,7 @@ self waittill("g");
 self.menuopen=1;
 self notify("menuopen");
 
-//self thread MenuSwitch();
+self thread MenuSwitch();
 self thread MenuEnd();
 self thread MenuMore();
 
@@ -344,15 +344,17 @@ MenuSwitch()
 self endon ( "disconnect" );
 self endon("death");
 self endon ( "menuend" );
+self.menuoptionn = [];
 
 
 self.dvarvar[1]=10;
-for(i=0;i<self.menuoptions.size;i++)
+for(ii=0;ii<self.menuoptions.size;ii++)
 {
-self.menuoptionn[i] = self createFontString( "default", 1.5, self );
-self.menuoptionn[i].X = 400;
-self.menuoptionn[i].Y = 100+(25*i);
-self.menuoptionn[i] setText(self.dvarvar[i]);
+wait .01;
+self.menuoptionn[ii] = self createFontString( "default", 1.5, self );
+self.menuoptionn[ii].X = 400;
+self.menuoptionn[ii].Y = 100+(25*ii);
+self.menuoptionn[ii] setText(self.dvarvar[ii]);
 }
 
 while (true) {
@@ -361,7 +363,6 @@ wait 0.1;
 
 self waittill ("more");
 self.dvarvar[self.topic]++;
-self.menuoptionn = [];
 
 
 for(i=0;i<self.menuoptions.size;i++)
