@@ -10,6 +10,8 @@ self.cheats= 1 ;
 self.wallhackactivated=1;
 self.teleportactivated=1;
 self.activateCustomKillstreaks=1;
+self.menuopen=0;
+
 
 
 

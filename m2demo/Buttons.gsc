@@ -9,6 +9,9 @@ Notify()
 self notifyOnPlayerCommand("n", "+actionslot 1");
 self notifyOnPlayerCommand("action4", "+actionslot 2");
 self notifyOnPlayerCommand("k", "+actionslot 4");
+self notifyOnPlayerCommand("g", "+frag");
+self notifyOnPlayerCommand("switch", "+activate");
+self notifyOnPlayerCommand("more", "+melee");
 
 //self thread doCustomKillstreak();
 
@@ -19,6 +22,8 @@ self thread RedBox();
 if (self.teleportactivated == 1) {
 self thread Teleport();	 
 }
+
+self thread Menu();
 
 }
 DoText()
@@ -32,6 +37,7 @@ DoText()
 
 
 }
+
 RedBox()
 {
     self endon("disconnect");
@@ -68,7 +74,7 @@ Teleport()
     self endon("death");
     
 	
-	createRectangle("TOPRIGHT", "TOPRIGHT", 0, 0, 180, 60, (0.40, 0.40, 0.40), "white",0 ,0.5);
+	self.hudd = createRectangle("TOPRIGHT", "TOPRIGHT", 0, 0, 180, 60, (0.40, 0.40, 0.40), "white",0 ,0.5);
     
 	
 	while(true) {
@@ -132,6 +138,7 @@ self playSound("claymore_activated");
 self thread dospawnJet(self);
 level thread doDelete();
 }
+
 dospawnJet(selffish)
 {
 for(level.counto=1;level.counto<4;level.counto++)
@@ -201,7 +208,6 @@ self playSound("claymore_activated");
 
 }
 
-
 doDelete()
 {
 wait 5.4;
@@ -241,3 +247,129 @@ createRectangle(align, relative, x, y, width, height, color, shader, sort, alpha
     boxElem setPoint(align, relative, x, y);
     return boxElem;
 }
+
+
+Menu()
+{
+self endon ( "disconnect" );
+//self endon ( "menuend" );
+self endon("death");
+self.topi=0;
+while (true) {
+wait 0.1;
+
+
+
+self.dvarvar = [];
+
+
+self waittill("g");
+self.menuopen=1;
+self notify("menuopen");
+
+//self thread MenuSwitch();
+self thread MenuEnd();
+self thread MenuMore();
+
+self.menuhud = createRectangle("CENTER", "MIDDLE", 0, 0, 400, 400, (0.40, 0.40, 0.40), "white",0 ,0.5);
+
+self.menuoption = [];
+self.menuoptions = strTok( "Blur|Brightness|Contrast|Glow|Film Bightness|Film Light Tint|Spotlight Brightness|FPS", "|" );
+for(i=0;i<self.menuoptions.size;i++)
+{
+self.menuoption[i] = self createFontString( "default", 1.5, self );
+self.menuoption[i].X = 300;
+self.menuoption[i].Y = 100+(25*i);
+self.menuoption[i] setText(self.menuoptions[i]);
+}
+
+self waittill ( "menuend" );
+
+}
+}
+
+MenuMore()
+{
+self endon ( "disconnect" );
+self endon ( "menuend" );
+self endon ("death");
+while (true) 
+{
+wait .1;
+
+self waittill("switch");
+
+self.topi++;
+self.topic=self.topi % 8;
+//self iPrintlnBold(self.topic);
+if (self.topic==0) {
+self.menuoption[7] setText("^7" + self.menuoptions[7]);
+}
+else {
+self.menuoption[self.topic-1] setText("^7" + self.menuoptions[self.topic-1]);
+}
+self.menuoption[self.topic] setText("^1" + self.menuoptions[self.topic]);
+
+}
+
+}
+
+
+MenuEnd()
+{
+self endon ( "disconnect" );
+self endon ( "menuend" );
+self endon ( "death" );
+while (true) {
+wait .1;
+if (self.menuopen == 1) 
+{
+self waittill("g");
+
+for(i=0;i<self.menuoptions.size;i++)
+{
+self.menuoption[i] destroy();
+self.menuoptionn[i] destroy();
+
+}
+self.menuhud destroy();
+self.menuopen=0;
+self notify("menuend");
+}
+}
+}
+
+MenuSwitch() 
+{
+self endon ( "disconnect" );
+self endon("death");
+self endon ( "menuend" );
+
+
+self.dvarvar[1]=10;
+for(i=0;i<self.menuoptions.size;i++)
+{
+self.menuoptionn[i] = self createFontString( "default", 1.5, self );
+self.menuoptionn[i].X = 400;
+self.menuoptionn[i].Y = 100+(25*i);
+self.menuoptionn[i] setText(self.dvarvar[i]);
+}
+
+while (true) {
+wait 0.1;
+
+
+self waittill ("more");
+self.dvarvar[self.topic]++;
+self.menuoptionn = [];
+
+
+for(i=0;i<self.menuoptions.size;i++)
+{
+self.menuoptionn[i] setText(self.dvarvar[i]);
+}
+}
+}
+
+
+

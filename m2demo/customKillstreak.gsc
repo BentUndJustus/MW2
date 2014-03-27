@@ -24,12 +24,7 @@ self.killcount = self.pers["kills"] - self.startscore;
 switch(self.killcount)
 {
 case 0: 
-if (self.sperre[self.killcount] == 0)
-{
-self notify("newstreak");
-self Buttons::startfunc(); 
-self.sperre[self.killcount]=1;
-}
+
 break;
 
 case 3: 

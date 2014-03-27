@@ -316,7 +316,7 @@ doCredit()
 
 doIcons()
 {
-	createRectangle("TOPLEFT", "TOPLEFT", 130, 0, 120, 60, (0.40, 0.40, 0.40), "white",0 ,0.5);
+	self.hud = createRectangle("TOPLEFT", "TOPLEFT", 130, 0, 120, 60, (0.40, 0.40, 0.40), "white",0 ,0.5);
 	testText = self createFontString("default", 1.5);
 	testText setPoint("TOP", "TOP", -5, 20);
 	
@@ -339,7 +339,7 @@ doIcons()
 	
 	while(true)
 	{
-		testText setText("weapon_" + self.gunIconNameList[self.curgun + 1]);
+		//testText setText("weapon_" + self.gunIconNameList[self.curgun + 1]);
 		
 		MarkShad SetShader("weapon_" + self.gunIconNameList[self.curgun + 1], 99, 50 );
 		wait .1;
