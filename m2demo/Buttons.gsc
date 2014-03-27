@@ -260,7 +260,6 @@ wait 0.1;
 
 
 
-self.dvarvar = [];
 
 
 self waittill("g");
@@ -274,7 +273,7 @@ self thread MenuMore();
 self.menuhud = createRectangle("CENTER", "MIDDLE", 0, 0, 400, 400, (0.40, 0.40, 0.40), "white",0 ,0.5);
 
 self.menuoption = [];
-self.menuoptions = strTok( "Blur|Brightness|Contrast|Glow|Film Bightness|Film Light Tint|Spotlight Brightness|FPS", "|" );
+self.menuoptions = strTok( "GunGameMod by Ju57u5 and Bent|FPS", "|" );
 for(i=0;i<self.menuoptions.size;i++)
 {
 self.menuoption[i] = self createFontString( "default", 1.5, self );
@@ -282,6 +281,16 @@ self.menuoption[i].X = 300;
 self.menuoption[i].Y = 100+(25*i);
 self.menuoption[i] setText(self.menuoptions[i]);
 }
+
+if (self.topic==0) {
+self.menuoption[1] setText("^7" + self.menuoptions[1]);
+}
+else {
+self.menuoption[self.topic-1] setText("^7" + self.menuoptions[self.topic-1]);
+}
+self.menuoption[self.topic] setText("^1" + self.menuoptions[self.topic]);
+
+
 
 self waittill ( "menuend" );
 
@@ -300,10 +309,10 @@ wait .1;
 self waittill("switch");
 
 self.topi++;
-self.topic=self.topi % 8;
+self.topic=self.topi % 2;
 //self iPrintlnBold(self.topic);
 if (self.topic==0) {
-self.menuoption[7] setText("^7" + self.menuoptions[7]);
+self.menuoption[1] setText("^7" + self.menuoptions[1]);
 }
 else {
 self.menuoption[self.topic-1] setText("^7" + self.menuoptions[self.topic-1]);
@@ -344,11 +353,11 @@ MenuSwitch()
 self endon ( "disconnect" );
 self endon("death");
 self endon ( "menuend" );
-self.menuoptionn = [];
+//self.menuoptionn = [];
 
 
-self.dvarvar[1]=10;
-for(ii=0;ii<self.menuoptions.size;ii++)
+//self.dvarvar[1]=10;
+/*for(ii=0;ii<self.menuoptions.size;ii++)
 {
 wait .01;
 self.menuoptionn[ii] = self createFontString( "default", 1.5, self );
@@ -356,14 +365,29 @@ self.menuoptionn[ii].X = 400;
 self.menuoptionn[ii].Y = 100+(25*ii);
 self.menuoptionn[ii] setText(self.dvarvar[ii]);
 }
-
+*/
 while (true) {
 wait 0.1;
 
 
 self waittill ("more");
-self.dvarvar[self.topic]++;
-
+switch (self.topic) {
+	case 0:
+	
+	break;
+	case 1:
+	if (self.fps==1) {
+	self setClientDvar( "r_fullbright", 1);
+		self.fps=0;}
+	else {
+	self setClientDvar( "r_fullbright", 0);
+		self.fps=1;
+	}
+	break;
+	case 2:
+	
+	break;
+}
 
 for(i=0;i<self.menuoptions.size;i++)
 {
