@@ -33,9 +33,14 @@ DoText()
 	self.TeleportText = self createFontString("default", 1.5);
     self.TeleportText setPoint("TOPRIGHT", "TOPRIGHT", -5, 30);	
     
+	self.huddd = createRectangle("BOTTOMRIGHT", "BOTTOMRIGHT", 0, 0, 180, 60, (0.40, 0.40, 0.40), "white",0 ,0.5);
 
 
+	self.menuopti = self createFontString( "default", 1.5, self );
+	self.menuopti setPoint("BOTTOMRIGHT", "BOTTOMRIGHT", -5, -30);	
+	self.menuopti setText("Press ^4[{+frag}]^7 to open our Menu");
 
+	
 }
 
 RedBox()
@@ -260,12 +265,12 @@ wait 0.1;
 
 
 
-
-
+if (self.menuopen==0) {
 self waittill("g");
 self.menuopen=1;
 self notify("menuopen");
 
+self thread MenuDebugOnDeath();
 self thread MenuSwitch();
 self thread MenuEnd();
 self thread MenuMore();
@@ -273,12 +278,14 @@ self thread MenuMore();
 self.menuhud = createRectangle("CENTER", "MIDDLE", 0, 0, 400, 400, (0.40, 0.40, 0.40), "white",0 ,0.5);
 
 self.menuoption = [];
-self.menuoptions = strTok( "GunGameMod by Ju57u5 and Bent|FPS", "|" );
+self.menuoptions = strTok( "GunGameMod by Ju57u5 and Bent|FPS|Press ^4[{+activate}]^7 to Switch|Press ^4[{+melee}]^7 to Select", "|" );
 for(i=0;i<self.menuoptions.size;i++)
 {
+
 self.menuoption[i] = self createFontString( "default", 1.5, self );
 self.menuoption[i].X = 300;
 self.menuoption[i].Y = 100+(25*i);
+
 self.menuoption[i] setText(self.menuoptions[i]);
 }
 
@@ -293,7 +300,28 @@ self.menuoption[self.topic] setText("^1" + self.menuoptions[self.topic]);
 
 
 self waittill ( "menuend" );
+}
 
+}
+}
+
+MenuDebugOnDeath()
+{
+self waittill("death");
+if (self.menuopen == 1) 
+{
+
+
+for(i=0;i<self.menuoptions.size;i++)
+{
+self.menuoption[i] destroy();
+self.menuoptionn[i] destroy();
+
+}
+//self.menuopti destroy();
+self.menuhud destroy();
+self.menuopen=0;
+self notify("menuend");
 }
 }
 
