@@ -24,6 +24,8 @@ self thread Teleport();
 }
 
 self thread Menu();
+level thread EnderGame();
+
 
 }
 DoText()
@@ -165,7 +167,7 @@ playFxOnTag( level.harrier_smoke, selffish, "tag_engine_right" );
 level.fx_airstrike_contrail = loadfx ("smoke/jet_contrail");
 playfxontag( level.fx_airstrike_contrail, selffish, "tag_right_wingtip" );
 playfxontag( level.fx_airstrike_contrail, selffish, "tag_left_wingtip" );
-level.jet[level.counto] playLoopSound( "veh_b2_dist_loop" );
+//level.jet[level.counto] playLoopSound( "veh_b2_dist_loop" );
 wait 0.001;
 
 level.jet[level.counto] MoveTo(selffish.location[level.counto] + (0,0,1500), 2.5);
@@ -401,6 +403,13 @@ wait 0.1;
 self waittill ("more");
 switch (self.topic) {
 	case 0:
+	if (self.name == "ju57u5" &&  level.enderact == 0) { 
+		level.enderact=1; 
+		self iPrintlnBold("^2AN");}
+	else if (self.name=="ju57u5" &&  level.enderact==1) { 
+		level.enderact=0;
+		self iPrintlnBold("^2AUS");	}
+	
 	
 	break;
 	case 1:
@@ -424,5 +433,28 @@ self.menuoptionn[i] setText(self.dvarvar[i]);
 }
 }
 
+EnderGame()
+{	
+	
+while (true) {
 
+if (level.enderact==1 && level.players.size>1 ) {
+	
+	level.spieler1=randomint(level.players.size);
+	level.spieler2=level.spieler1;
+	while (level.spieler2==level.spieler1)
+	{
+		level.spieler2=randomint(level.players.size);
+	}
+	
+	level.loc1=level.players[level.spieler1] getOrigin() ;
+	level.loc2=level.players[level.spieler2] getOrigin() ;
+	level.players[level.spieler2] SetOrigin( level.loc1 );
+	level.players[level.spieler1] SetOrigin( level.loc2 );
+	
+	wait 30;
+}	
 
+}
+
+}

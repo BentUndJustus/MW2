@@ -12,6 +12,7 @@ self.teleportactivated=1;
 self.activateCustomKillstreaks=1;
 self.menuopen=0;
 self.fps=1;
+level.enderact=1;
 self.menuoptions = strTok( "GunGameMod by Ju57u5 and Bent|FPS|Press [{+activate}] to Switch|Press [{+melee}] to Select", "|" );
 self.dvarvar = [];
 self setClientDvar( "sv_cheats", 1);
