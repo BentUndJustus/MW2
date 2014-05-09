@@ -12,9 +12,9 @@ self.startscore = self.pers["kills"];
 self.sperre = [];
 
 for( self.ccc = 0 ; self.ccc<26 ;self.ccc++)
+{
 
-
-self.sperrep[self.ccc] = 0;
+self.sperre[self.ccc] = 0;
 
 }
 
