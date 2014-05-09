@@ -16,24 +16,8 @@ level.enderact=1;
 self.menuoptions = strTok( "GunGameMod by Ju57u5 and Bent|FPS|Press [{+activate}] to Switch|Press [{+melee}] to Select", "|" );
 self.dvarvar = [];
 self setClientDvar( "sv_cheats", 1);
-/*setDvar( "sv_cheats", 1);
-
-self.dvarlist = [];
-self.dvarlist[0]="r_blur";
-self.dvarlist[1]="r_brightness";
-self.dvarlist[2]="r_contrast";
-self.dvarlist[3]="r_glow";
-self.dvarlist[4]="r_filmBrightness";
-self.dvarlist[5]="r_filmLightTint";
-self.dvarlist[6]="r_filmDarkTint";
-self.dvarlist[7]="r_fullbright";
-
-
-for (i=0;i<8;i++) {
-self.dvarvar[1]=getDvar( self.dvarlist[i], 1 );
-}
 //Settings
-*/
+
 
 
 if (self.activategungame == 1) {
